@@ -1,0 +1,9 @@
+name: Deploy Inventory
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Fabillio.Ordering/**'
+  workflow_dispatch:

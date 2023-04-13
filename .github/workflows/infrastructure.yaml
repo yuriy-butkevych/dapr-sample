@@ -10,9 +10,8 @@ on:
 
 env:
   AZURE_ACR_REPOSITORY: fabillio-infrastructure
-  REGISTRY: fabillio
+  REGISTRY: fabilliotest
   ENVIRONMENT: test-westeu
-  KEY_VAULT: kv-fabillio-test-westeu
 
 jobs:
   deploy:
@@ -35,6 +34,6 @@ jobs:
             resourceGroup=rg-fabillio-${{ env.ENVIRONMENT }}
             az group create -g $resourceGroup -l westeurope
 
-            az deployment group create -g $resourceGroup -f ./main-infrastructure.bicep \
+            az deployment group create -g $resourceGroup -f ./Fabillio.Infrastructure/main-infrastructure.bicep \
              -p \
                 environmentName=${{ env.ENVIRONMENT }} 
