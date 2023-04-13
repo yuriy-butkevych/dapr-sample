@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'Fabillio.Infrastructure/**'
   workflow_dispatch:
 
 env:
