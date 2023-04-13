@@ -54,7 +54,6 @@ module apim 'api-management.bicep' = {
     publisherName: 'fabillio'
     publisherEmail: 'contact@fabillio.com'
     apimLocation: location
-    environmentName: environmentName
   }
 }
 
