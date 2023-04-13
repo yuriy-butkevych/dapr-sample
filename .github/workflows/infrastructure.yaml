@@ -1,0 +1,40 @@
+name: Deploy infrastructure
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'Fabillio.Infrastructure/**'
+  workflow_dispatch:
+
+env:
+  AZURE_ACR_REPOSITORY: fabillio-infrastructure
+  REGISTRY: fabillio
+  ENVIRONMENT: test-westeu
+  KEY_VAULT: kv-fabillio-test-westeu
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy bicep
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.45.0
+          inlineScript: |
+            resourceGroup=rg-fabillio-${{ env.ENVIRONMENT }}
+            az group create -g $resourceGroup -l westeurope
+
+            az deployment group create -g $resourceGroup -f ./main-infrastructure.bicep \
+             -p \
+                environmentName=${{ env.ENVIRONMENT }} 
