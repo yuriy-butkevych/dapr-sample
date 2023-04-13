@@ -3,7 +3,6 @@ param environmentName string
 
 var inventoryServiceName = 'app-inventory-${environmentName}'
 var orderingServiceName = 'app-ordering-${environmentName}'
-var storageAccountName = replace('strgfabillio${environmentName}', '-', '')
 
 // App Insights
 module appInsights 'app-insights.bicep' = {
@@ -11,15 +10,6 @@ module appInsights 'app-insights.bicep' = {
   params: {
     appInsightsName: 'ai-fabillio-${environmentName}'
     logAnalyticsWorkspaceName: 'log-fabillio-${environmentName}'
-    location: location
-  }
-}
-
-// Storage Account
-module storageAccount 'storage-account.bicep' = {
-  name: 'storage-account-${environmentName}'
-  params: {
-    storageAccountName: storageAccountName
     location: location
   }
 }

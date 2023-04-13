@@ -2,9 +2,6 @@ param apimName string
 param apimLocation string = resourceGroup().location
 param publisherName string
 param publisherEmail string
-param environmentName string
-var keyVaultCertSecret = contains(environmentName, 'prod') ? 'wildcard-fabillio-com' : 'wildcard-test-fabillio-com'
-var hostName = contains(environmentName, 'prod') ? 'api.fabillio.com' : 'api.test.fabillio.com'
 
 @description('The pricing tier of this API Management service')
 @allowed([
@@ -33,14 +30,6 @@ resource apim 'Microsoft.ApiManagement/service@2021-12-01-preview' = {
         negotiateClientCertificate: false
         defaultSslBinding: false
         certificateSource: 'BuiltIn'
-      }
-      {
-        type: 'Proxy'
-        hostName: hostName
-        keyVaultId: 'https://kv-fabillio-acme-ali5.vault.azure.net/secrets/${keyVaultCertSecret}'
-        negotiateClientCertificate: false
-        defaultSslBinding: true
-        certificateSource: 'KeyVault'
       }
     ]
     virtualNetworkType: 'None'
