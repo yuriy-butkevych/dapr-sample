@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using Fabillio.Inventory.API.Constants;
+using Fabillio.Ordering.API.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 
-namespace Fabillio.Inventory.API.Extensions;
+namespace Fabillio.Ordering.API.Extensions;
 
 public static class SwaggerConfigurations
 {
@@ -21,7 +21,7 @@ public static class SwaggerConfigurations
                 { Title = RoutingConstants.Documentation._technicalApiName, Version = "v1", Description = "" });
 
             swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
-                "Fabillio.Inventory.Api.xml"));
+                "Fabillio.Ordering.Api.xml"));
         });
 
         return services;
@@ -34,7 +34,7 @@ public static class SwaggerConfigurations
         app.UseSwaggerUI(cfg =>
         {
             cfg.DefaultModelsExpandDepth(-1);
-            cfg.DocumentTitle = "Fabillio Inventory API";
+            cfg.DocumentTitle = "Fabillio Ordering API";
             cfg.SwaggerEndpoint("client-interface/swagger.json",
                 RoutingConstants.Documentation._baseApiName);
             cfg.SwaggerEndpoint("technical-interface/swagger.json",

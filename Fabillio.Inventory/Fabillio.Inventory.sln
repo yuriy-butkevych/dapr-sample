@@ -15,6 +15,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.Public.Contracts", "Fabillio.Inventory.Public.Contracts\Fabillio.Inventory.Public.Contracts.csproj", "{46AB1DAC-E270-46E6-AA04-C33D63FA97F7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{D9EB71C0-1383-4632-A500-BC43AAA451F6}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\deploy.ps1 = deployment\deploy.ps1
+		deployment\main-inventory.bicep = deployment\main-inventory.bicep
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -5,22 +5,22 @@ param containerImage string
 param keyVaultName string
 
 var containerAppEnvironmentName = 'env-fabillio-${environmentName}'
-var inventoryServiceName = 'app-inventory-${environmentName}'
+var orderingServiceName = 'app-ordering-${environmentName}'
 
 resource appInsights 'Microsoft.Insights/components@2020-02-02' existing = {
   name: 'ai-fabillio-${environmentName}'
 }
 
-// Inventory Service
-module inventoryService '../../Fabillio.Infrastructure/container-http.bicep' = {
-  name: inventoryServiceName
+// Ordering Service
+module orderingService '../../Fabillio.Infrastructure/container-http.bicep' = {
+  name: orderingServiceName
   params: {
     enableIngress: true
     isExternalIngress: true
     location: location
     environmentName: containerAppEnvironmentName
     containerImage: '${containerRegistry}.azurecr.io/${containerImage}'
-    containerAppName: inventoryServiceName
+    containerAppName: orderingServiceName
     enableDapr: true
     containerPort: 6011
     minReplicas: 1
@@ -32,24 +32,24 @@ module inventoryService '../../Fabillio.Infrastructure/container-http.bicep' = {
   }
 }
 
-// Add Inventory Service to API Management
+// Add Ordering Service to API Management
 module apimInveentory '../../Fabillio.Infrastructure/api-management-api.bicep' = {
-  name: 'apim-${inventoryServiceName}'
+  name: 'apim-${orderingServiceName}'
   params: {
     apimName: 'apim-fabillio-${environmentName}'
-    apiName: inventoryServiceName
-    apiUrl: 'https://${inventoryService.outputs.fqdn}'
-    apiPath: 'inventory'
-    apiResourceId: inventoryService.outputs.resourceId
+    apiName: orderingServiceName
+    apiUrl: 'https://${orderingService.outputs.fqdn}'
+    apiPath: 'ordering'
+    apiResourceId: orderingService.outputs.resourceId
   }
 }
 
 
 module accessContainer2KeyVault '../../Fabillio.Infrastructure/keyvault-access-policy.bicep' = {
-  name: 'access-${inventoryServiceName}-2-keyVault-deployment'
+  name: 'access-${orderingServiceName}-2-keyVault-deployment'
   params: {
     keyVaultName: keyVaultName
-    servicePrincipalId: inventoryService.outputs.principalId
+    servicePrincipalId: orderingService.outputs.principalId
   }
 }
 

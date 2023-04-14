@@ -2,7 +2,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Fabillio.Inventory.API.Controllers;
+namespace Fabillio.Ordering.API.Controllers;
 
 [ApiController]
 public abstract class BaseController : ControllerBase

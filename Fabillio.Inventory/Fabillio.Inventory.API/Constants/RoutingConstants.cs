@@ -10,12 +10,6 @@ internal static class RoutingConstants
         internal const string _clientInterface = "client-interface";
     }
 
-    internal static class Diagnostic
-    {
-        internal const string _base = "diagnostic";
-        internal const string _liveness = "liveness";
-    }
-
     internal static class Products
     {
         internal const string _base = "products";
