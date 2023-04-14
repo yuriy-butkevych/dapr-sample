@@ -54,4 +54,5 @@ jobs:
             az deployment group create -g rg-fabillio-${{ env.ENVIRONMENT }} -f ./Fabillio.Ordering/deployment/main-ordering.bicep \
              -p \
                 environmentName=${{ env.ENVIRONMENT }} \
-                containerImage=${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
+                containerImage=${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }} \
+                keyVaultName=kv-fabillio-${{ env.ENVIRONMENT }}
