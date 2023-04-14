@@ -10,8 +10,8 @@ on:
 
 env:
   AZURE_ACR_REPOSITORY: app-fabillio-inventory
-  REGISTRY: fabiliotest
-  ENVIRONMENT: 'test-westeu'
+  REGISTRY: fabilliotest
+  ENVIRONMENT: "test-westeu"
 
 jobs:
   build:
@@ -37,7 +37,7 @@ jobs:
     needs: build
 
     steps:
-      - name: 'Checkout GitHub Action'
+      - name: "Checkout GitHub Action"
         uses: actions/checkout@v2
 
       - name: Azure Login
