@@ -17,6 +17,7 @@ using Newtonsoft.Json.Converters;
 using Fabillio.Common.Configurations.Extensions;
 using Fabillio.Common.Events;
 using Fabillio.Common.Exceptions;
+using Fabillio.Inventory.Cqrs.Actors;
 using Fabillio.Inventory.Cqrs.EventHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -68,7 +69,10 @@ builder.Host.ConfigureServices(services =>
                 .AllowAnyHeader());
     });
 
-    services.AddActors(options => { });
+    services.AddActors(options =>
+    {
+        options.Actors.RegisterActor<ProductActor>();
+    });
 });
 
 var app = builder.Build();
