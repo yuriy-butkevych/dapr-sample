@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - 'Fabillio.Ordering/**'
+    # paths:
+    #   - 'Fabillio.Ordering/**'
   workflow_dispatch:
 
 env:
