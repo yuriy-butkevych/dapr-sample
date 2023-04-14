@@ -17,6 +17,6 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
-EXPOSE 6011/tcp
-ENV ASPNETCORE_URLS http://*:6011
+EXPOSE 6012/tcp
+ENV ASPNETCORE_URLS http://*:6012
 ENTRYPOINT ["dotnet", "Fabillio.Inventory.API.dll"]

@@ -22,7 +22,7 @@ module inventoryService '../../Fabillio.Infrastructure/container-http.bicep' = {
     containerImage: '${containerRegistry}.azurecr.io/${containerImage}'
     containerAppName: inventoryServiceName
     enableDapr: true
-    containerPort: 6011
+    containerPort: 6012
     minReplicas: 1
     maxReplicas: 1
     containerRegistry: containerRegistry
