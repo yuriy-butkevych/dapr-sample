@@ -1,6 +1,8 @@
 using System;
 using System.Reflection;
 using Azure.Identity;
+using Fabillio.Common.Actors;
+using Fabillio.Common.Actors.CronActors;
 using Fabillio.Ordering.API.Controllers;
 using Fabillio.Ordering.API.Extensions;
 using Fabillio.Ordering.Domain.Entities;
@@ -17,6 +19,8 @@ using Newtonsoft.Json.Converters;
 using Fabillio.Common.Configurations.Extensions;
 using Fabillio.Common.Events;
 using Fabillio.Common.Exceptions;
+using Fabillio.Ordering.Cqrs.Commands;
+using Fabillio.Ordering.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,7 +53,8 @@ builder.Host.ConfigureServices(services =>
     services.AddEvents(new Assembly []{ });
 
     services.AddMediatR(
-        typeof(OrdersController).Assembly
+        typeof(OrdersController).Assembly,
+        typeof(PlaceOrderCommand).Assembly
     );
 
     services.AddExceptionHandling(new[] { typeof(Program).Assembly });
@@ -66,7 +71,12 @@ builder.Host.ConfigureServices(services =>
                 .AllowAnyHeader());
     });
 
-    services.AddActors(options => { });
+    services.AddActors(options =>
+    {
+        options.Actors.RegisterActor<OrderingOutboxEventsCronActor>();
+    });
+    
+    services.AddCronActors();
 });
 
 var app = builder.Build();
@@ -101,5 +111,14 @@ app.InitRavenDatabase<Order>(
     null,
     builder.Configuration.GetSection("OrderingRavenSettings:Urls").Get<string[]>(),
     null);
+
+if (!app.Environment.IsDevelopment())
+{
+    app.Lifetime.ApplicationStarted.Register(async () => 
+    {
+        var actorsScheduler = app.Services.GetRequiredService<ICronActorsScheduler>();
+        await actorsScheduler.ScheduleCronActors();
+    });
+}
 
 await app.RunAsync();

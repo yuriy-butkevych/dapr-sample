@@ -28,7 +28,7 @@ The output is in json format:
 
 Manually create Azure Key Vault `kv-fabillio-test-westeu` and add the following secrets:
 `InventoryRavenSettings--CertFilePath`
-`InventoryRavenSettings--CertFilePassword`
+`InventoryRavenSettings--CertPassword`
 `OrderingRavenSettings--CertFilePath`
-`OrderingRavenSettings--CertFilePassword`
+`OrderingRavenSettings--CertPassword`
 

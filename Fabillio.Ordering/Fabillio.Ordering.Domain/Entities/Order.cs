@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Fabillio.Common.Events.Abstractions;
 using Fabillio.Ordering.Public.Events;
-using OrderItem = Fabillio.Ordering.Domain.EntitiesNodes.OrderItem;
 
 namespace Fabillio.Ordering.Domain.Entities;
 
@@ -18,15 +17,15 @@ public class Order: IEventsDomainModel
     
     public Guid CustomerId { get; set; }
     
-    public List<OrderItem> Items { get; set; }
-    
-    public List<IEvent> Events { get; set; }
+    public List<Fabillio.Ordering.Domain.EntitiesNodes.OrderItem> Items { get; set; }
+
+    public List<IEvent> Events { get; set; } = new();
     
     public DateTime Created { get; set; }
     
     public DateTime? Updated { get; set; }
 
-    public void Create(Guid customerId, List<OrderItem> items)
+    public void Create(Guid customerId, List<Fabillio.Ordering.Domain.EntitiesNodes.OrderItem> items)
     {
         OrderId = Guid.NewGuid();
         Created = DateTime.UtcNow;
@@ -34,13 +33,13 @@ public class Order: IEventsDomainModel
         Items = items;
 
         var eventItems = Items
-            .Select(x => new Fabillio.Ordering.Public.Events.OrderItem
+            .Select(x => new OrderItem
                 { ProductId = x.ProductId, Count = x.Count }).ToList();
         
         Events.Add(new OrderPlaced { Items = eventItems, OrderId = OrderId });
     }
 
-    public void Update(List<OrderItem> items)
+    public void Update(List<Fabillio.Ordering.Domain.EntitiesNodes.OrderItem> items)
     {
         Items = items;
         Updated = DateTime.UtcNow;

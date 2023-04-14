@@ -1,5 +1,4 @@
 using System;
-using System.Reflection;
 using Azure.Identity;
 using Fabillio.Inventory.API.Controllers;
 using Fabillio.Inventory.API.Extensions;
@@ -18,6 +17,7 @@ using Newtonsoft.Json.Converters;
 using Fabillio.Common.Configurations.Extensions;
 using Fabillio.Common.Events;
 using Fabillio.Common.Exceptions;
+using Fabillio.Inventory.Cqrs.EventHandlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,7 +47,7 @@ builder.Host.ConfigureServices(services =>
     services.ConfigureRaven(sectionName: "InventoryRavenSettings");
 
     services.AddDaprClient();
-    services.AddEvents(new Assembly []{ });
+    services.AddEvents(new[]{ typeof(UpdateProductsRemainingCountV1).Assembly });
 
     services.AddMediatR(
         typeof(ProductsController).Assembly,

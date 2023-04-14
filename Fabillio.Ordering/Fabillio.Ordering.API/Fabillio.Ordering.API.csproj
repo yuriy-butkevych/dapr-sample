@@ -33,7 +33,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Fabillio.Ordering.Cqrs\Fabillio.Ordering.Cqrs.csproj" />
       <ProjectReference Include="..\Fabillio.Ordering.Domain\Fabillio.Ordering.Domain.csproj" />
+      <ProjectReference Include="..\Fabillio.Ordering.Infrastructure\Fabillio.Ordering.Infrastructure.csproj" />
+      <ProjectReference Include="..\Fabillio.Ordering.Public.Contracts\Fabillio.Ordering.Public.Contracts.csproj" />
     </ItemGroup>
 
 </Project>

@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", 
 		deployment\main-ordering.bicep = deployment\main-ordering.bicep
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Ordering.Infrastructure", "Fabillio.Ordering.Infrastructure\Fabillio.Ordering.Infrastructure.csproj", "{8DA8986C-7CB8-4E62-8DDE-C9635AACFCF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0346FDF1-787B-40B0-B6D1-79ABBE82517D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA8986C-7CB8-4E62-8DDE-C9635AACFCF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA8986C-7CB8-4E62-8DDE-C9635AACFCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA8986C-7CB8-4E62-8DDE-C9635AACFCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA8986C-7CB8-4E62-8DDE-C9635AACFCF5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{57DD1B5A-45FE-4D53-ACE4-097323DE0355} = {29493C14-05C9-4987-B5E7-A1147FBCD0E2}
