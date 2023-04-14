@@ -28,7 +28,8 @@ jobs:
           password: ${{ secrets.ACR_PASSWORD }}
 
       - run: |
-          docker build . -f Fabillio.Ordering/Fabillio.Ordering.API/Dockerfile -t ${{ env.REGISTRY }}.azurecr.io/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
+          cd Fabillio.Ordering
+          docker build . -f ./Fabillio.Ordering.API/Dockerfile -t ${{ env.REGISTRY }}.azurecr.io/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
           docker push ${{ env.REGISTRY }}.azurecr.io/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
 
   deploy:
