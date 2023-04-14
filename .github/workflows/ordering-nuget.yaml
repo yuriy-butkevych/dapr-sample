@@ -49,5 +49,6 @@ jobs:
           
       - name: nuget publish
         run: |
+          cd Fabillio.Ordering
           dotnet nuget push *.Public.*/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
           dotnet nuget push Fabillio.Ordering.Domain/bin/Release/*.nupkg -k ${{ secrets.NUGET_API_KEY }} --skip-duplicate
