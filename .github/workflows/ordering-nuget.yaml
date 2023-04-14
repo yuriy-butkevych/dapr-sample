@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'Fabillio.Ordering/**'
     tags:
   workflow_dispatch:
 

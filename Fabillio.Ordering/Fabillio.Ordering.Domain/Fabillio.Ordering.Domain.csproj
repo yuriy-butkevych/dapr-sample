@@ -2,6 +2,8 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/yuriy-butkevych/dapr-sample</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
