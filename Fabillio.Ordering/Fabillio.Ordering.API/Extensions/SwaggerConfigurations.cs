@@ -20,8 +20,7 @@ public static class SwaggerConfigurations
                 new OpenApiInfo
                 { Title = RoutingConstants.Documentation._technicalApiName, Version = "v1", Description = "" });
 
-            swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
-                "Fabillio.Ordering.Api.xml"));
+            swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, "Fabillio.Ordering.API.xml"));
         });
 
         return services;
