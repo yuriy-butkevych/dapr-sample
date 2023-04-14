@@ -47,7 +47,7 @@ builder.Host.ConfigureServices(services =>
     services.ConfigureRaven(sectionName: "InventoryRavenSettings");
 
     services.AddDaprClient();
-    services.AddEvents(new[]{ typeof(UpdateProductsRemainingCountV1).Assembly });
+    services.AddEvents(new[]{ typeof(UpdateProductsRemainingCount).Assembly });
 
     services.AddMediatR(
         typeof(ProductsController).Assembly,

@@ -10,11 +10,11 @@ using Raven.Client.Documents.Session;
 
 namespace Fabillio.Inventory.Cqrs.EventHandlers;
 
-public class UpdateProductsRemainingCountV1: IHandle<OrderPlaced>
+public class UpdateProductsRemainingCount: IHandle<OrderPlaced>
 {
     private readonly IAsyncDocumentSession _documentSession;
 
-    public UpdateProductsRemainingCountV1(IAsyncDocumentSession documentSession)
+    public UpdateProductsRemainingCount(IAsyncDocumentSession documentSession)
     {
         _documentSession = documentSession;
     }
