@@ -9,7 +9,7 @@ namespace Fabillio.Inventory.Cqrs.Actors;
 
 public interface IProductActor : IActor
 {
-    public Task<int> BookProducts(int count);
+    public Task BookProducts(int count);
 }
 
 public class ProductActor : Actor, IProductActor
@@ -21,7 +21,7 @@ public class ProductActor : Actor, IProductActor
         _documentStore = documentStore;
     }
 
-    public async Task<int> BookProducts(int count)
+    public async Task BookProducts(int count)
     {
         var productId = Guid.Parse(Id.GetId());
 
@@ -30,16 +30,11 @@ public class ProductActor : Actor, IProductActor
         
         if (product == null)
         {
-            return 0;
-            
+            return;
         }
-        
-        var bookedProducts = Math.Min(product.RemainingCount, count);
-            
+  
         product.UpdateRemainingAmount(product.RemainingCount - count);
 
         await session.SaveChangesAsync();
-
-        return bookedProducts;
     }
 }
