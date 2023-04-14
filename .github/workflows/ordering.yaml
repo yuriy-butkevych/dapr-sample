@@ -51,7 +51,7 @@ jobs:
           azcliversion: 2.45.0
           inlineScript: |
             az group create -g rg-fabillio-${{ env.ENVIRONMENT }} -l westeurope
-            az deployment group create -g rg-fabillio-${{ env.ENVIRONMENT }} -f ./deployment/main-ordering.bicep \
+            az deployment group create -g rg-fabillio-${{ env.ENVIRONMENT }} -f ./Fabillio.Ordering/deployment/main-ordering.bicep \
              -p \
                 environmentName=${{ env.ENVIRONMENT }} \
                 containerImage=${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
