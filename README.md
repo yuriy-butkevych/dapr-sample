@@ -22,3 +22,13 @@ The output is in json format:
 }
 ```
 
+### Manually create resources: Azure Container Registry + Azure Key Vault
+
+`ACR_USERNAME`, `ACR_PASSWORD` should be taken from Azure Container Registry Access keys page (Username, password) and added as secrets to github repository
+
+Manually create Azure Key Vault `kv-fabillio-test-westeu` and add the following secrets:
+`InventoryRavenSettings--CertFilePath`
+`InventoryRavenSettings--CertFilePassword`
+`OrderingRavenSettings--CertFilePath`
+`OrderingRavenSettings--CertFilePassword`
+

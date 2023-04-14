@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>da32cccf-4339-40bb-a8a2-2e141ff943e2</UserSecretsId>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <NoWarn>1701;1702;1591;</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Azure.Identity" Version="1.8.2" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+        <PackageReference Include="Azure.Extensions.AspNetCore.Configuration.Secrets" Version="1.2.2" />
+        <PackageReference Include="Dapr.Actors" Version="1.10.0" />
+        <PackageReference Include="Dapr.Actors.AspNetCore" Version="1.10.0" />
+        <PackageReference Include="Dapr.AspNetCore" Version="1.10.0" />
+        <PackageReference Include="Dapr.Client" Version="1.10.0" />
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.10" />
+        <PackageReference Include="RavenDB.DependencyInjection" Version="4.0.2" />
+        <PackageReference Include="RavenDB.Client" Version="5.4.5" />
+        <PackageReference Include="Fabillio.Common.Configurations" Version="1.0.0" />
+        <PackageReference Include="Fabillio.Common.Events" Version="1.0.0" />
+        <PackageReference Include="Fabillio.Common.Events.Abstractions" Version="1.0.0" />
+        <PackageReference Include="Fabillio.Common.Exceptions" Version="1.0.0" />
+        <PackageReference Include="Fabillio.Common.Helpers" Version="1.0.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Fabillio.Inventory.Cqrs\Fabillio.Inventory.Cqrs.csproj" />
+      <ProjectReference Include="..\Fabillio.Inventory.Domain\Fabillio.Inventory.Domain.csproj" />
+      <ProjectReference Include="..\Fabillio.Inventory.Public.Contracts\Fabillio.Inventory.Public.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

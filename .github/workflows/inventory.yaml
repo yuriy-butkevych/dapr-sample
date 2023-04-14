@@ -7,3 +7,50 @@ on:
     paths:
       - 'Fabillio.Inventory/**'
   workflow_dispatch:
+
+env:
+  AZURE_ACR_REPOSITORY: app-fabillio-inventory
+  REGISTRY: fabiliotest
+  ENVIRONMENT: 'test-westeu'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+
+      - name: Login to Azure Container Registry
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ env.REGISTRY }}.azurecr.io
+          username: ${{ secrets.ACR_USERNAME }}
+          password: ${{ secrets.ACR_PASSWORD }}
+
+      - run: |
+          docker build . -f Fabillio.Inventory/Fabillio.Inventory.API/Dockerfile -t ${{ env.REGISTRY }}.azurecr.io/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
+          docker push ${{ env.REGISTRY }}.azurecr.io/${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - name: 'Checkout GitHub Action'
+        uses: actions/checkout@v2
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy bicep
+        uses: azure/CLI@v1
+        with:
+          azcliversion: 2.45.0
+          inlineScript: |
+            az group create -g rg-fabillio-${{ env.ENVIRONMENT }} -l westeurope
+            az deployment group create -g rg-fabillio-${{ env.ENVIRONMENT }} -f ./deployment/main-inventory.bicep \
+             -p \
+                environmentName=${{ env.ENVIRONMENT }} \
+                containerImage=${{ env.AZURE_ACR_REPOSITORY }}:${{ github.sha }}

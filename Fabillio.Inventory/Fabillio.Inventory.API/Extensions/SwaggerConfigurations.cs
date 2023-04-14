@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
+using Fabillio.Inventory.API.Constants;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
-using Samvirk.Identities.Auth;
 
-namespace Samvirk.Loyalty.Api.Extensions;
+namespace Fabillio.Inventory.API.Extensions;
 
 public static class SwaggerConfigurations
 {
@@ -20,10 +20,8 @@ public static class SwaggerConfigurations
                 new OpenApiInfo
                 { Title = RoutingConstants.Documentation._technicalApiName, Version = "v1", Description = "" });
 
-            swagger.ConfigureWithSamvirkAuthentication();
-
             swagger.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory,
-                "Samvirk.Loyalty.Api.xml"));
+                "Fabillio.Inventory.Api.xml"));
         });
 
         return services;
@@ -36,7 +34,7 @@ public static class SwaggerConfigurations
         app.UseSwaggerUI(cfg =>
         {
             cfg.DefaultModelsExpandDepth(-1);
-            cfg.DocumentTitle = "Samvirk Loyalty API";
+            cfg.DocumentTitle = "Fabillio Inventory API";
             cfg.SwaggerEndpoint("client-interface/swagger.json",
                 RoutingConstants.Documentation._baseApiName);
             cfg.SwaggerEndpoint("technical-interface/swagger.json",

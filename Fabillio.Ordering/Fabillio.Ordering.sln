@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Ordering.API", "Fa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Ordering.Domain", "Fabillio.Ordering.Domain\Fabillio.Ordering.Domain.csproj", "{4FDB209B-6898-497D-990A-0D4887AB866B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Ordering.Cqrs", "Fabillio.Ordering.Cqrs\Fabillio.Ordering.Cqrs.csproj", "{F3B28511-7459-4978-8535-EECE3821E68C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{4FDB209B-6898-497D-990A-0D4887AB866B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FDB209B-6898-497D-990A-0D4887AB866B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FDB209B-6898-497D-990A-0D4887AB866B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B28511-7459-4978-8535-EECE3821E68C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{57DD1B5A-45FE-4D53-ACE4-097323DE0355} = {29493C14-05C9-4987-B5E7-A1147FBCD0E2}

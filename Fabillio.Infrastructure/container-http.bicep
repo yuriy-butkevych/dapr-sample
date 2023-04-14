@@ -7,7 +7,8 @@ param isExternalIngress bool
 param containerRegistry string
 param containerRegistryRG string = 'fabillio-shared'
 param enableIngress bool
-param minReplicas int = 0
+param minReplicas int = 1
+param maxReplicas int = 1
 param env array = []
 param enableDapr bool = false
 
@@ -60,7 +61,7 @@ resource containerApp 'Microsoft.App/containerApps@2022-01-01-preview' = {
       ]
       scale: {
         minReplicas: minReplicas
-        maxReplicas: 1
+        maxReplicas: maxReplicas
       }
     }
   }
@@ -71,3 +72,4 @@ resource containerApp 'Microsoft.App/containerApps@2022-01-01-preview' = {
 
 output fqdn string = enableIngress ? containerApp.properties.configuration.ingress.fqdn : 'Ingress not enabled'
 output principalId string = containerApp.identity.principalId
+output resourceId string = containerApp.id

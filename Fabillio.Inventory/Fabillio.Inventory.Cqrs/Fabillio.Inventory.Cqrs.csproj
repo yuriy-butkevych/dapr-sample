@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="10.0.1" />
+      <PackageReference Include="MediatR.Contracts" Version="1.0.1" />
+      <PackageReference Include="RavenDB.Client" Version="5.4.5" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Fabillio.Inventory.Domain\Fabillio.Inventory.Domain.csproj" />
+      <ProjectReference Include="..\Fabillio.Inventory.Public.Contracts\Fabillio.Inventory.Public.Contracts.csproj" />
+    </ItemGroup>
+
+</Project>

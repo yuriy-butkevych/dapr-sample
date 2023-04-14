@@ -1,8 +1,54 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fabillio.Inventory.Public", "Fabillio.Inventory.Public", "{44454D32-DA95-40AF-9B5C-F7ECD7B6AB9A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.Public.Events", "Fabillio.Inventory.Public.Events\Fabillio.Inventory.Public.Events.csproj", "{708C5B06-24A8-43E2-9B84-243E02F59E0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.API", "Fabillio.Inventory.API\Fabillio.Inventory.API.csproj", "{69090054-228F-40D8-8305-703B1817DE9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.Domain", "Fabillio.Inventory.Domain\Fabillio.Inventory.Domain.csproj", "{30995530-5BAC-4D32-83B3-8F871809D49A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.Cqrs", "Fabillio.Inventory.Cqrs\Fabillio.Inventory.Cqrs.csproj", "{4142E5C4-D0B2-4736-A779-1F43F1CB6CE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.Infrastructure", "Fabillio.Inventory.Infrastructure\Fabillio.Inventory.Infrastructure.csproj", "{E9BBA26D-D3D9-4582-ACE2-DF6C085D0000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Inventory.Public.Contracts", "Fabillio.Inventory.Public.Contracts\Fabillio.Inventory.Public.Contracts.csproj", "{46AB1DAC-E270-46E6-AA04-C33D63FA97F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{D9EB71C0-1383-4632-A500-BC43AAA451F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{708C5B06-24A8-43E2-9B84-243E02F59E0F} = {44454D32-DA95-40AF-9B5C-F7ECD7B6AB9A}
+		{46AB1DAC-E270-46E6-AA04-C33D63FA97F7} = {44454D32-DA95-40AF-9B5C-F7ECD7B6AB9A}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{708C5B06-24A8-43E2-9B84-243E02F59E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{708C5B06-24A8-43E2-9B84-243E02F59E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{708C5B06-24A8-43E2-9B84-243E02F59E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{708C5B06-24A8-43E2-9B84-243E02F59E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69090054-228F-40D8-8305-703B1817DE9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69090054-228F-40D8-8305-703B1817DE9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69090054-228F-40D8-8305-703B1817DE9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69090054-228F-40D8-8305-703B1817DE9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30995530-5BAC-4D32-83B3-8F871809D49A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30995530-5BAC-4D32-83B3-8F871809D49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30995530-5BAC-4D32-83B3-8F871809D49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30995530-5BAC-4D32-83B3-8F871809D49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4142E5C4-D0B2-4736-A779-1F43F1CB6CE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4142E5C4-D0B2-4736-A779-1F43F1CB6CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4142E5C4-D0B2-4736-A779-1F43F1CB6CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4142E5C4-D0B2-4736-A779-1F43F1CB6CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BBA26D-D3D9-4582-ACE2-DF6C085D0000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BBA26D-D3D9-4582-ACE2-DF6C085D0000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BBA26D-D3D9-4582-ACE2-DF6C085D0000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BBA26D-D3D9-4582-ACE2-DF6C085D0000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46AB1DAC-E270-46E6-AA04-C33D63FA97F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46AB1DAC-E270-46E6-AA04-C33D63FA97F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46AB1DAC-E270-46E6-AA04-C33D63FA97F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46AB1DAC-E270-46E6-AA04-C33D63FA97F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

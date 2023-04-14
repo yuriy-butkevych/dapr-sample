@@ -1,3 +1,5 @@
 .idea/
 bin/
 obj/
+__azurite*.json
+__queue*/

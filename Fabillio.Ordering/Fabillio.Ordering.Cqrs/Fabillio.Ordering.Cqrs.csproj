@@ -5,7 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Fabillio.Common.Events.Abstractions" Version="1.0.0" />
+      <Folder Include="Commands" />
+      <Folder Include="Queries" />
     </ItemGroup>
 
 </Project>
