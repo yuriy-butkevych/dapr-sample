@@ -8,4 +8,8 @@
       <PackageReference Include="Fabillio.Common.Events.Abstractions" Version="1.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Fabillio.Ordering.Public.Events\Fabillio.Ordering.Public.Events.csproj" />
+    </ItemGroup>
+
 </Project>

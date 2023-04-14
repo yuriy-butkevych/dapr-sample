@@ -1,4 +1,4 @@
-namespace Fabilio.Ordering.Public.Contracts.Requests;
+namespace Fabillio.Ordering.Public.Contracts.Requests;
 
 public class PlaceOrderRequest
 {

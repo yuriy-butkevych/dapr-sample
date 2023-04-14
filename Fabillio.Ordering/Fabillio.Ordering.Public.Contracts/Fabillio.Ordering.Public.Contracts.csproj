@@ -2,13 +2,10 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <RootNamespace>Fabilio.Ordering.Public.Contracts</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Responses" />
+      <ProjectReference Include="..\Fabillio.Ordering.Domain\Fabillio.Ordering.Domain.csproj" />
     </ItemGroup>
 
 </Project>

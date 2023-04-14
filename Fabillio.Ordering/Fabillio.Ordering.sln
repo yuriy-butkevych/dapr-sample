@@ -12,6 +12,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Ordering.Cqrs", "F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fabillio.Ordering.Public.Contracts", "Fabillio.Ordering.Public.Contracts\Fabillio.Ordering.Public.Contracts.csproj", "{0346FDF1-787B-40B0-B6D1-79ABBE82517D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deployment", "deployment", "{8981F198-073C-4557-A8B2-F70E1C4EB990}"
+	ProjectSection(SolutionItems) = preProject
+		deployment\deploy.ps1 = deployment\deploy.ps1
+		deployment\main-ordering.bicep = deployment\main-ordering.bicep
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
