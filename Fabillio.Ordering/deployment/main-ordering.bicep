@@ -33,7 +33,7 @@ module orderingService '../../Fabillio.Infrastructure/container-http.bicep' = {
 }
 
 // Add Ordering Service to API Management
-module apimInveentory '../../Fabillio.Infrastructure/api-management-api.bicep' = {
+module apimInventory '../../Fabillio.Infrastructure/api-management-api.bicep' = {
   name: 'apim-${orderingServiceName}'
   params: {
     apimName: 'apim-fabillio-${environmentName}'
